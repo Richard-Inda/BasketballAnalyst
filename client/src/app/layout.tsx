@@ -23,11 +23,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="en" suppressHydrationWarning>
+    <body
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+      <Navbar />
+      {children}
+      </ThemeProvider>
+      <footer>
+        <h1>Footer</h1>
+      </footer>
       </body>
     </html>
   );
